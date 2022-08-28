@@ -1,42 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>也许你并不知道</title>
-    <base target="_blank">
-    <style type="text/css">
-    
-        
-        body {
-            background-image: url(./1.jpg);
-            background-size: 100% 100%;
-            height:100%;
-        }
-        html{
-            height: 100%;
-        }
-        
-        p{
-            color: black;    
-            size: 50px;
-           
-        }
-        
-    </style>
-</head>
 
-<script>
-    /* 主页script */
+<html>
 
-        alert("欢迎查看这篇文章")
+  <head>
 
-</script>
-<body>
-    <audio src="1.mp3" autoplay="auyoplay" loop="loop">
-    </audio>
-    <p>绿色护眼，文章偏长</p>
-    <p></p>道大唐贞观治繁荣一时，写南北宋朝下文明中外；论元代蒙古地疆土万里，看大明汉人做天下祥安。</p>
-    <p></p>为何偏</p>
-</body>
+    <title>HTML5实现网页截屏</title>
+
+    <script src="http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+
+    <script src="http://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+
+    <script>
+
+      function taoge(){
+
+        html2canvas($('#xttblog'), {
+
+          onrendered: function(canvas) {
+
+            // canvas 是最后一个渲染的<canvas> 元素
+
+            $('#btn').attr( 'href' , canvas.toDataURL() ) ;
+
+            $('#btn').attr( 'download' , 'xttblog.png' ) ;
+
+          }
+
+        });
+
+      }
+
+    </script>
+
+  </head>
+
+  <body>
+
+    <p id="xttblog">
+
+      <img src="http://www.xttblog.com/wp-content/uploads/2016/03/123.png"/>
+
+
+
+      <a href="" id="btn" onclick="taoge();">截图</a>
+
+    </p>
+
+  </body>
+
 </html>
